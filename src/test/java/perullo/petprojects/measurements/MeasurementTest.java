@@ -15,9 +15,6 @@ public class MeasurementTest {
 
 		assertUnitConversion(1.0, DistanceUnit.METERS, DistanceUnit.METERS, 1.0);
 
-		assertUnitConversion(1.0, DistanceUnit.FEET, DistanceUnit.METERS, 0.3048);
-		assertUnitConversion(1.0, DistanceUnit.METERS, DistanceUnit.FEET, 1.0/0.3048);
-
         assertUnitConversion(1.0, DistanceUnit.DECIMETERS, DistanceUnit.METERS, 0.1);
 		assertUnitConversion(1.0, DistanceUnit.METERS, DistanceUnit.DECIMETERS, 1.0/0.1);
 
@@ -30,18 +27,26 @@ public class MeasurementTest {
 		assertUnitConversion(1.0, DistanceUnit.DECAMETERS, DistanceUnit.METERS, 10.0);
 		assertUnitConversion(1.0, DistanceUnit.METERS, DistanceUnit.DECAMETERS, 1.0/10.0);
 
+//		assertUnitConversion(1.0, DistanceUnit.HECTOMETERS, DistanceUnit.METERS, 100.0);
+//		assertUnitConversion(1.0, DistanceUnit.METERS, DistanceUnit.HECTOMETERS, 1.0/100.0);
+		
+		assertUnitConversion(1.0, DistanceUnit.KILOMETERS, DistanceUnit.METERS, 1000.0);
+		assertUnitConversion(1.0, DistanceUnit.METERS, DistanceUnit.KILOMETERS, 1.0/1000.0);
+		
 		assertUnitConversion(1.0, DistanceUnit.INCHES, DistanceUnit.METERS, 0.0254);
 		assertUnitConversion(1.0, DistanceUnit.METERS, DistanceUnit.INCHES, 1.0/0.0254);
+
+		assertUnitConversion(1.0, DistanceUnit.FEET, DistanceUnit.METERS, 0.3048);
+		assertUnitConversion(1.0, DistanceUnit.METERS, DistanceUnit.FEET, 1.0/0.3048);
+
+        assertUnitConversion(1.0, DistanceUnit.INCHES, DistanceUnit.METERS, 0.0254);
+        assertUnitConversion(1.0, DistanceUnit.METERS, DistanceUnit.INCHES, 1.0/0.0254);
 
         assertUnitConversion(1.0, DistanceUnit.FEET, DistanceUnit.INCHES, 12.0);
         assertUnitConversion(1.0, DistanceUnit.INCHES, DistanceUnit.FEET, 1.0/12.0);
 
-
-//    	HECTOMETER(100.0),
-//    	KILOMETERS(1000.0),
-//    	FEET(0.3048),
-//    	YARDS(0.9144),
-//    	INCHES(0.0254);
+        assertUnitConversion(1.0, DistanceUnit.YARDS, DistanceUnit.METERS, 0.9144);
+        assertUnitConversion(1.0, DistanceUnit.METERS, DistanceUnit.YARDS, 1.0/0.9144);
 
 		softly.assertAll();
 	}
