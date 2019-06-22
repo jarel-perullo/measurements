@@ -5,10 +5,12 @@ public enum DistanceUnit implements Unit {
 	DECIMETERS(0.1),
 	CENTIMETERS(0.01),
 	MILLIMETERS(0.001),
+	DECAMETERS(10.0),
+	HECTOMETER(100.0),
 	KILOMETERS(1000.0),
 	FEET(0.3048),
-	YARDS(1.09361),
-	INCHES(39.3701);
+	YARDS(0.9144),
+	INCHES(0.0254);
 
 	private final double toBaseMultiplier;
 
