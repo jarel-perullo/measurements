@@ -6,12 +6,11 @@ import org.junit.Test;
 
 public class MeasurementTest {
 
-	private final Offset<Double> tolerance = Offset.offset(0.0000001);
+	private final Offset<Double> tolerance = Offset.offset(0.0001);
 	private final SoftAssertions softly = new SoftAssertions();
 
 	@Test
 	public void testDistanceUnits() {
-
 		assertUnitConversion(1.0, DistanceUnit.METERS, DistanceUnit.METERS, 1.0);
 
         assertUnitConversion(1.0, DistanceUnit.DECIMETERS, DistanceUnit.METERS, 0.1);
@@ -52,8 +51,13 @@ public class MeasurementTest {
 
     @Test
     public void testAngleUnits() {
-        
         assertUnitConversion(180, AngleUnit.DEGREES, AngleUnit.RADIANS, Math.PI);
+        assertUnitConversion(Math.PI, AngleUnit.RADIANS, AngleUnit.DEGREES, 180.0);
+        
+        assertUnitConversion(360, AngleUnit.DEGREES, AngleUnit.RADIANS, 2 * Math.PI);
+        assertUnitConversion(2 * Math.PI, AngleUnit.RADIANS, AngleUnit.DEGREES, 360.0);
+        
+        softly.assertAll();
     }
 
 	private <U extends Unit> void assertUnitConversion(double value, U unitToConvertFrom, U unitToConvertTo,
