@@ -6,7 +6,7 @@ public enum DistanceUnit implements Unit {
 	CENTIMETERS(0.01),
 	MILLIMETERS(0.001),
 	DECAMETERS(10.0),
-	HECTOMETER(100.0),
+	HECTOMETERS(100.0),
 	KILOMETERS(1000.0),
 	FEET(0.3048),
 	YARDS(0.9144),
@@ -18,13 +18,8 @@ public enum DistanceUnit implements Unit {
 		this.toBaseMultiplier = toBaseMultiplier;
 	}
 
-	@Override
-	public double convertToBaseValue(double valueToConvert) {
-		return valueToConvert * toBaseMultiplier;
-	}
-
-	@Override
-	public double convertFromBaseValue(double valueToConvert) {
-		return valueToConvert / toBaseMultiplier;
-	}
+    @Override
+    public double getToBaseMultiplier() {
+        return toBaseMultiplier;
+    }
 }

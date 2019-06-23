@@ -2,7 +2,6 @@ package perullo.petprojects.measurements;
 
 import org.assertj.core.api.SoftAssertions;
 import org.assertj.core.data.Offset;
-import org.junit.Before;
 import org.junit.Test;
 
 public class MeasurementTest {
@@ -27,8 +26,8 @@ public class MeasurementTest {
 		assertUnitConversion(1.0, DistanceUnit.DECAMETERS, DistanceUnit.METERS, 10.0);
 		assertUnitConversion(1.0, DistanceUnit.METERS, DistanceUnit.DECAMETERS, 1.0/10.0);
 
-//		assertUnitConversion(1.0, DistanceUnit.HECTOMETERS, DistanceUnit.METERS, 100.0);
-//		assertUnitConversion(1.0, DistanceUnit.METERS, DistanceUnit.HECTOMETERS, 1.0/100.0);
+		assertUnitConversion(1.0, DistanceUnit.HECTOMETERS, DistanceUnit.METERS, 100.0);
+		assertUnitConversion(1.0, DistanceUnit.METERS, DistanceUnit.HECTOMETERS, 1.0/100.0);
 		
 		assertUnitConversion(1.0, DistanceUnit.KILOMETERS, DistanceUnit.METERS, 1000.0);
 		assertUnitConversion(1.0, DistanceUnit.METERS, DistanceUnit.KILOMETERS, 1.0/1000.0);
@@ -50,6 +49,12 @@ public class MeasurementTest {
 
 		softly.assertAll();
 	}
+
+    @Test
+    public void testAngleUnits() {
+        
+        assertUnitConversion(180, AngleUnit.DEGREES, AngleUnit.RADIANS, Math.PI);
+    }
 
 	private <U extends Unit> void assertUnitConversion(double value, U unitToConvertFrom, U unitToConvertTo,
 			double expected) {

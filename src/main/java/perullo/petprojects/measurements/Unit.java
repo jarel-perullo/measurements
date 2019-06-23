@@ -1,7 +1,14 @@
 package perullo.petprojects.measurements;
 
 public interface Unit {
-	public double convertToBaseValue(double valueToConvert);
+    
+	public default double convertToBaseValue(double valueToConvert) {
+	    return valueToConvert * getToBaseMultiplier();
+	}
 	
-	public double convertFromBaseValue(double valueToConvert);
+	public default double convertFromBaseValue(double valueToConvert){
+	    return valueToConvert / getToBaseMultiplier();
+	}
+	
+	public double getToBaseMultiplier(); 
 }
